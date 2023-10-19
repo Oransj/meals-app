@@ -4,8 +4,7 @@ import 'package:meals_app/screens/meal_information.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen(this.meals,
-      {super.key, this.title});
+  const MealsScreen(this.meals, {super.key, this.title});
 
   final String? title;
   final List<Meal> meals;
@@ -22,7 +21,7 @@ class MealsScreen extends StatelessWidget {
     Widget body = ListView.builder(
       itemCount: meals.length,
       itemBuilder: (ctx, index) => MealItem(
-        meals[index],
+        meal: meals[index],
         onSelectMeal: (Meal meal) {
           selectMeal(context, meal);
         },

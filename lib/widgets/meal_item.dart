@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem(this.meal, {super.key, required this.onSelectMeal});
+  const MealItem({
+    super.key,
+    required this.meal,
+    required this.onSelectMeal,
+  });
 
   final Meal meal;
   final void Function(Meal meal) onSelectMeal;
@@ -24,25 +27,28 @@ class MealItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.all(8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
         onTap: () {
           onSelectMeal(meal);
         },
-        child: Stack(children: [
-          Hero(
-            tag: meal.id,
-            child: FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
+        child: Stack(
+          children: [
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+              ),
             ),
-          ),
-          Positioned(
+            Positioned(
               bottom: 0,
               left: 0,
               right: 0,
@@ -69,21 +75,27 @@ class MealItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MealItemTrait(
-                            Icons.schedule, '${meal.duration} minutes'),
-                        const SizedBox(
-                          width: 12,
+                          icon: Icons.schedule,
+                          label: '${meal.duration} min',
                         ),
-                        MealItemTrait(Icons.work, complexityText),
-                        const SizedBox(
-                          width: 12,
+                        const SizedBox(width: 12),
+                        MealItemTrait(
+                          icon: Icons.work,
+                          label: complexityText,
                         ),
-                        MealItemTrait(Icons.attach_money, affordabilityText),
+                        const SizedBox(width: 12),
+                        MealItemTrait(
+                          icon: Icons.attach_money,
+                          label: affordabilityText,
+                        )
                       ],
-                    )
+                    ),
                   ],
                 ),
-              ))
-        ]),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
