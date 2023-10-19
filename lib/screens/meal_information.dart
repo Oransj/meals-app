@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/providers/favorites_provider.dart';
+import 'package:meals_app/widgets/checkable_step.dart';
 
 class MealInformationScreen extends ConsumerWidget {
   const MealInformationScreen(this.meal, {super.key});
@@ -72,12 +73,7 @@ class MealInformationScreen extends ConsumerWidget {
               height: 14,
             ),
             for (final ingredient in meal.ingredients)
-              Text(
-                ingredient,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-              ),
+              CheckableStep(text: ingredient),
             const SizedBox(
               height: 24,
             ),
@@ -98,13 +94,7 @@ class MealInformationScreen extends ConsumerWidget {
                   horizontal: 12,
                   vertical: 16,
                 ),
-                child: Text(
-                  step,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                ),
+                child: CheckableStep(text: step),
               ),
             const SizedBox(
               height: 24,
