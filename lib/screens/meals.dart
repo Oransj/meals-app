@@ -3,12 +3,14 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/meal_information.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
+/// Shows a list of meals.
 class MealsScreen extends StatelessWidget {
   const MealsScreen(this.meals, {super.key, this.title});
 
   final String? title;
   final List<Meal> meals;
 
+  /// Selects a meal and navigates to the meal information screen.
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => MealInformationScreen(
@@ -18,7 +20,7 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget body = ListView.builder(
+    Widget body = ListView.builder( //Uses ListView.builder since the list of meals can be long
       itemCount: meals.length,
       itemBuilder: (ctx, index) => MealItem(
         meal: meals[index],

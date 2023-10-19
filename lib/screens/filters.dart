@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals_app/providers/filters_provider.dart';
 
+/// Screen that contains the filters.
+/// Here you can set the filters for which meals are shown.
+/// Is ConsumerWidget because it uses the [filterProvider].
 class FiltersScreen extends ConsumerWidget {
   const FiltersScreen({super.key});
 

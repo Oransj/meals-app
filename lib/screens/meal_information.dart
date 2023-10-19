@@ -4,6 +4,9 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/providers/favorites_provider.dart';
 import 'package:meals_app/widgets/checkable_step.dart';
 
+/// The screen that shows the information of a meal.
+/// In this case a summary, the ingredients and the steps.
+/// Is ConsumerWidget because it uses the [favoriteMealsProvider].
 class MealInformationScreen extends ConsumerWidget {
   const MealInformationScreen(this.meal, {super.key});
 
@@ -11,7 +14,8 @@ class MealInformationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final meals = ref.watch(favoriteMealsProvider);
+    final meals = ref.watch(
+        favoriteMealsProvider); //Gets the favorite meals from the provider
 
     final isFavorite = meals.contains(meal);
 
@@ -24,7 +28,8 @@ class MealInformationScreen extends ConsumerWidget {
               final added = ref
                   .read(favoriteMealsProvider.notifier)
                   .toggleMealFavorite(meal);
-              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context)
+                  .clearSnackBars(); //Clears all snackbars in case there is one already showing
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(added
@@ -55,7 +60,7 @@ class MealInformationScreen extends ConsumerWidget {
             Hero(
               tag: meal.id,
               child: Image.network(
-                meal.imageUrl,
+                meal.imageUrl, //Gets the image from the internet using the url
                 height: 300,
                 width: double.infinity,
                 fit: BoxFit.cover,

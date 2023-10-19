@@ -1,15 +1,18 @@
+///The complexity of a meal.
 enum Complexity {
   simple,
   challenging,
   hard,
 }
 
+///The affordability of a meal.
 enum Affordability {
   affordable,
   pricey,
   luxurious,
 }
 
+///The model for a meal.
 class Meal {
   const Meal({
     required this.id,

@@ -5,6 +5,7 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/screens/meals.dart';
 import 'package:meals_app/widgets/category_grid_item.dart';
 
+/// Shows a grid of categories for the user to select.
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen(this.meals, {super.key});
   final List<Meal> meals;
@@ -19,6 +20,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>
 
   @override
   void initState() {
+    //Initializes the animation controller
     super.initState();
 
     _animationController = AnimationController(
@@ -28,12 +30,12 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       upperBound: 1,
     );
 
-    _animationController.forward();
+    _animationController.forward(); //Starts the animation
   }
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _animationController.dispose(); //Disposes the animation controller
     super.dispose();
   }
 

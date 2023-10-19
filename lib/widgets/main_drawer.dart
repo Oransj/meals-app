@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// The drawer used in the app.
+/// Here you can navigate to the meals screen and the filters screen.
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key, required this.onSelectScreen});
 
@@ -57,7 +59,7 @@ class MainDrawer extends StatelessWidget {
                   fontSize: 24),
             ),
             onTap: () {
-              onSelectScreen('meals');
+              onSelectScreen('meals'); //Go to meals screen
             },
           ),
           ListTile(
@@ -73,7 +75,7 @@ class MainDrawer extends StatelessWidget {
                   fontSize: 24),
             ),
             onTap: () {
-              onSelectScreen("filters");
+              onSelectScreen("filters"); //Go to filters screen
             },
           ),
         ],

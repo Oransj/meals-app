@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A step or ingredient that can be checked.
 class CheckableStep extends StatefulWidget {
   const CheckableStep({super.key, required this.text});
 
@@ -19,9 +20,6 @@ class _CheckableStepState extends State<CheckableStep> {
     return Stack(
       alignment: Alignment.center,
       children: [
-        /* const SizedBox(
-          width: 32.0,
-        ), */
         Align(
           alignment: Alignment.center,
           child: Padding(

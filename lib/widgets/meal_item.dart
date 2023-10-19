@@ -3,6 +3,8 @@ import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+/// A widget that showcases a meal recipe.
+/// It can be tapped to navigate to the recipe screen.
 class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
@@ -32,15 +34,15 @@ class MealItem extends StatelessWidget {
       ),
       clipBehavior: Clip.hardEdge,
       elevation: 2,
-      child: InkWell(
+      child: InkWell( //InkWell is a widget that makes its child tappable
         onTap: () {
           onSelectMeal(meal);
         },
-        child: Stack(
+        child: Stack( //Stack is a widget that stacks its children on top of each other
           children: [
-            Hero(
+            Hero( //Hero image
               tag: meal.id,
-              child: FadeInImage(
+              child: FadeInImage( //FadeInImage is a widget that shows a placeholder while the image is loading
                 placeholder: MemoryImage(kTransparentImage),
                 image: NetworkImage(meal.imageUrl),
                 fit: BoxFit.cover,
@@ -48,7 +50,7 @@ class MealItem extends StatelessWidget {
                 width: double.infinity,
               ),
             ),
-            Positioned(
+            Positioned( //Positioned is a widget that positions its child relative to the parent
               bottom: 0,
               left: 0,
               right: 0,
