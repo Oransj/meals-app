@@ -18,6 +18,8 @@ class _CheckableStepState extends State<CheckableStep> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      //To make everything centered in the style I wanted this need to be done. There is no other good way to avoid offset issues.
+      //Need Stack with alignments to make it work
       alignment: Alignment.center,
       children: [
         Align(
